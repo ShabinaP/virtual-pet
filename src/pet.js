@@ -33,16 +33,16 @@ else {this.hunger = MINIMUM_HUNGER}
 Pet.prototype.checkup = function () {
 if(this.fitness <= 3 && this.hunger >= 5) {
     return "I am hungry and I need a walk"
-    };
+    }
 
-if(this.fitness <= 3) {
+else if(this.fitness <= 3) {
     return "I need a walk"
-};
-if(this.hunger >= 5) {
+}
+else if (this.hunger >= 5) {
     return "I am hungry"
-};
-if(!(this.fitness <= 3) && !(this.hunger >= 5)) {
-    return "I feel great"
+}
+else 
+{ return "I feel great"
     };
 
 
