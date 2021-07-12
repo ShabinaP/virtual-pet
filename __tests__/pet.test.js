@@ -7,15 +7,48 @@ describe ("constructor", () => {
     });
 
     it ("sets the name property", () => {
-const pet = new Pet("Fido");
+       const pet = new Pet("Fido");
 
 expect(pet.name).toEqual("Fido");
     })
 
     it("initial age is 0", () => {
         const pet = new Pet("Fido");
-        expect(pet.age).toEqual(0)
+    expect(pet.age).toEqual(0)
     })
+});
+
+describe("isAlive", () => {
+    it("returns false if fitness is 0 or less", () => {
+        const pet = new Pet("Fido");
+        pet.isAlive
+        pet.fitness = 0;
+     expect(pet.isAlive).toEqual(false);
+    });
+
+    it("returns false if hunger is 10 or more", () => {
+        const pet = new Pet("Fido");
+        pet.isAlive
+        pet.hunger = 10;
+    expect(pet.isAlive).toEqual(false);
+    });
+
+    it("returns false if age is 30 or more", () => {
+        const pet = new Pet("Fido");
+        pet.isAlive
+        pet.age = 30;
+     expect(pet.isAlive).toEqual(false);
+    });
+
+    it("returns true if age is less than 30 and hunger is less than 10 and fitness is greater than 0 ", () => {
+        const pet = new Pet("Fido");
+        pet.isAlive
+        pet.age < 30
+        pet.hunger < 10
+        pet.fitness > 0
+    expect(pet.isAlive).toEqual(true);
+    });
+
 });
 
 describe("growup", () => {
