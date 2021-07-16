@@ -1,9 +1,10 @@
 const MAXIMUM_FITNESS = 10;
 const MINIMUM_HUNGER = 0;
+const STARTING_AGE= 0;
 
 function Pet (name) {
 this.name = name;
-this.age = 0;
+this.age = STARTING_AGE;
 this.hunger = MINIMUM_HUNGER;
 this.fitness = MAXIMUM_FITNESS;
 }
@@ -15,6 +16,9 @@ Pet.prototype = {
 };
 
 Pet.prototype.growUp = function () {
+    if (!this.isAlive) {
+        throw new Error ("Your pet is no longer alive :(")
+    }
 
     this.age += 1;
     this.hunger += 5;
@@ -23,6 +27,9 @@ Pet.prototype.growUp = function () {
 }
 
 Pet.prototype.walk = function () {
+    if (!this.isAlive) {
+        throw new Error ("Your pet is no longer alive :(")
+    }
     if ((this.fitness + 4) <= MAXIMUM_FITNESS) {
         this.fitness +=4;
     }
@@ -30,6 +37,9 @@ Pet.prototype.walk = function () {
 };
 
 Pet.prototype.feed = function () {
+if (!this.isAlive) {
+    throw new Error ("Your pet is no longer alive :(")
+}
 if ((this.hunger - 3) >= MINIMUM_HUNGER) {
     this.hunger -= 3;
 }
@@ -37,6 +47,9 @@ else {this.hunger = MINIMUM_HUNGER}
 };
 
 Pet.prototype.checkup = function () {
+    if (!this.isAlive) {
+        throw new Error ("Your pet is no longer alive :(")
+    }
 if(this.fitness <= 3 && this.hunger >= 5) {
     return "I am hungry and I need a walk"
     }
@@ -54,7 +67,15 @@ else
 
 
 
-//otherwise it should return true
+const parent = new Pet ("Bob");
+
+parent.haveBaby = function(Billy) {
+   this.children = [Pet ,{name: "Billy", children: []}]
+   return this.children
+};
+
+
+
 
 
 module.exports = Pet;

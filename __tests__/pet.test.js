@@ -52,6 +52,14 @@ describe("isAlive", () => {
 });
 
 describe("growup", () => {
+    it("throws an error if pet is not alive", () => {
+        const pet = new Pet("Fido");
+        pet.age = 30;
+        pet.hunger = 11;
+        pet.fitness = 0;
+        expect(() => pet.growUp()).toThrow("Your pet is no longer alive :(")
+    })
+
     it("increases the age by 1", () => {
         const pet = new Pet("Fido");
         pet.growUp()
@@ -70,6 +78,12 @@ describe("growup", () => {
 });
 
 describe("walk", () => {
+    it("throws an error if pet is not alive", () => {
+        const pet = new Pet("Fido");
+        pet.age = 30
+        pet.fitness = 0;
+        expect(() => pet.walk()).toThrow("Your pet is no longer alive :(")
+    });
     it("increases fitness by 4", () => {
         const pet = new Pet("Fido");
         pet.fitness = 4;
@@ -98,9 +112,23 @@ describe("feed", () => {
         pet.feed();
         expect(pet.hunger).toEqual(0)
         });
+
+        it("throws an error if pet is not alive", () => {
+            const pet = new Pet("Fido");
+            pet.age = 30;
+            pet.hunger = 11;
+            expect(() => pet.feed()).toThrow("Your pet is no longer alive :(")
+        });
     });
 
     describe("checkup", () => {
+        it("throws an error if pet is not alive", () => {
+            const pet = new Pet("Fido");
+            pet.age = 30;
+            pet.hunger = 11;
+            pet.fitness = 0;
+            expect(() => pet.checkup()).toThrow("Your pet is no longer alive :(")
+        });
         it("returns string if fitness is 3 or less", () => {
             const pet = new Pet("Fido");
             pet.checkup();
@@ -132,12 +160,22 @@ expect(pet.checkup()).toEqual("I am hungry")
         });
     });
 
+    describe("parent", () => {
+    it("pet creates a new instance called parent", () => {
+        const parent = new Pet ("Bob");
+    expect(parent).toBeInstanceOf(Pet)
+       });
+       
+       it("the haveBaby function should return an array of the pet's children", () => {
+        const parent = new Pet ("Bob");
+        parent.haveBaby = function(Billy) {
+            this.children = [Pet ,{name: "Billy", children: []}]
+            
+         };
+        expect(parent.haveBaby()).toEqual(this.children)
+       });
+     
+   
+    });
 
-    
-    
-
-
-
-
-
-    
+    ;
