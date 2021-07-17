@@ -66,14 +66,11 @@ else
     };
 };
 
-
-
-
-
 Pet.prototype.haveBaby = function(name) {
    this.children.push(new Pet(name))
    return this.children
 };
+
 
 
 

@@ -168,7 +168,11 @@ expect(pet.checkup()).toEqual("I am hungry")
        
        it("the haveBaby function should return an array of the pet's children", () => {
         const parent = new Pet ("Bob");
-        
+        Pet.prototype.haveBaby = function(name) {
+            this.children.push(new Pet(name))
+            return this.children
+         };
+         
         expect(parent.haveBaby()).toEqual(parent.children)
        });
      
