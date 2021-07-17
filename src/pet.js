@@ -7,6 +7,7 @@ this.name = name;
 this.age = STARTING_AGE;
 this.hunger = MINIMUM_HUNGER;
 this.fitness = MAXIMUM_FITNESS;
+this.children = [];
 }
 
 Pet.prototype = {
@@ -67,10 +68,10 @@ else
 
 
 
-const parent = new Pet ("Bob");
 
-parent.haveBaby = function(Billy) {
-   this.children = [Pet ,{name: "Billy", children: []}]
+
+Pet.prototype.haveBaby = function(name) {
+   this.children.push(new Pet(name))
    return this.children
 };
 

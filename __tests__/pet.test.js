@@ -168,14 +168,15 @@ expect(pet.checkup()).toEqual("I am hungry")
        
        it("the haveBaby function should return an array of the pet's children", () => {
         const parent = new Pet ("Bob");
-        parent.haveBaby = function(Billy) {
-            this.children = [Pet ,{name: "Billy", children: []}]
-            
-         };
-        expect(parent.haveBaby()).toEqual(this.children)
+        
+        expect(parent.haveBaby()).toEqual(parent.children)
        });
      
-   
+      it("the first element in the children array has a name property of Billy", () => {
+        const parent = new Pet ("Bob");
+        parent.haveBaby("Billy") 
+        expect(parent.children[0].name).toEqual("Billy")
+      })
     });
 
     ;
