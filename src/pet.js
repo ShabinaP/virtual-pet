@@ -3,12 +3,14 @@ const MINIMUM_HUNGER = 0;
 const STARTING_AGE= 0;
 
 function Pet (name) {
-this.name = name;
-this.age = STARTING_AGE;
-this.hunger = MINIMUM_HUNGER;
-this.fitness = MAXIMUM_FITNESS;
-this.children = [];
-}
+
+    this.name = name;
+    this.age = STARTING_AGE;
+    this.hunger = MINIMUM_HUNGER;
+    this.fitness = MAXIMUM_FITNESS;
+    this.children = [];
+
+};
 
 Pet.prototype = {
     get isAlive() {
@@ -25,7 +27,7 @@ Pet.prototype.growUp = function () {
     this.hunger += 5;
     this.fitness -=3;
 
-}
+};
 
 Pet.prototype.walk = function () {
     if (!this.isAlive) {
