@@ -19,6 +19,6 @@ Finally, the isAlive function is a getter method. This method will check the val
 
 **Shabina Patel**
 - [Profile] (https://github.com/ShabinaP)
-- [Email] (mailto: shabina-patel@hotmail.com "Hi!")
+- [Email] (shabina-patel@hotmail.com)
 
 
