@@ -4,6 +4,11 @@ const STARTING_AGE= 0;
 const MAXIMUM_AGE= 30;
 const MAXIMUM_HUNGER= 10;
 const MINIMUM_FITNESS= 0;
+const AGE_INCREASE= 1;
+const HUNGER_INCREASE= 5;
+const FITNESS_DECREASE= 3;
+const FITNESS_INCREASE= 4;
+const HUNGER_LEVEL= 5;
 
 function Pet (name) {
 
@@ -25,9 +30,9 @@ growUp () {
             throw new Error ("Your pet is no longer alive :(")
         }
     
-        this.age += 1;
-        this.hunger += 5;
-        this.fitness -=3;
+        this.age += AGE_INCREASE;
+        this.hunger += HUNGER_INCREASE;
+        this.fitness -= FITNESS_DECREASE;
     
     },
 
@@ -35,8 +40,8 @@ walk() {
         if (!this.isAlive) {
             throw new Error ("Your pet is no longer alive :(")
         }
-        if ((this.fitness + 4) <= MAXIMUM_FITNESS) {
-            this.fitness +=4;
+        if ((this.fitness + FITNESS_INCREASE) <= MAXIMUM_FITNESS) {
+            this.fitness +=FITNESS_INCREASE;
         }
         else {this.fitness = MAXIMUM_FITNESS} 
     },
@@ -44,8 +49,8 @@ feed() {
         if (!this.isAlive) {
             throw new Error ("Your pet is no longer alive :(")
         }
-        if ((this.hunger - 3) >= MINIMUM_HUNGER) {
-            this.hunger -= 3;
+        if ((this.hunger - FITNESS_DECREASE) >= MINIMUM_HUNGER) {
+            this.hunger -= FITNESS_DECREASE;
         }
         else {this.hunger = MINIMUM_HUNGER}
         },
@@ -54,14 +59,14 @@ checkup() {
         if (!this.isAlive) {
                 throw new Error ("Your pet is no longer alive :(")
             }
-        if(this.fitness <= 3 && this.hunger >= 5) {
+        if(this.fitness <= FITNESS_DECREASE && this.hunger >= HUNGER_LEVEL) {
             return "I am hungry and I need a walk"
             }
         
-        else if(this.fitness <= 3) {
+        else if(this.fitness <= FITNESS_DECREASE) {
             return "I need a walk"
         }
-        else if (this.hunger >= 5) {
+        else if (this.hunger >= HUNGER_LEVEL) {
             return "I am hungry"
         }
         else 
